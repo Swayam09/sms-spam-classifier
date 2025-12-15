@@ -5,8 +5,13 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-nltk.download("punkt")
-nltk.download("punkt_tab")
+@st.cache_resource
+def setup_nltk():
+    nltk.download("punkt")
+    nltk.download("punkt_tab")
+    nltk.download("stopwords")
+
+setup_nltk()
 
 
 ps = PorterStemmer()
